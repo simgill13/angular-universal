@@ -2,9 +2,9 @@
   "name": "angularuniversal",
   "version": "1.0.0",
   "description": "universal webpack",
-  "main": "index.js",
+  "main": "main.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test:build": "webpack-dev-server --open --config webpack.config.js"
   },
   "author": "simgill",
   "license": "ISC",
