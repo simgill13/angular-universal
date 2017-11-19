@@ -1,12 +1,14 @@
 const path                       = require('path');
 const HtmlWebpackPlugin          = require('html-webpack-plugin');
+var ExtractTextPlugin            = require('extract-text-webpack-plugin');
 const {ContextReplacementPlugin} = require('webpack');
 let helpers                      = require('./helpers');
 
 
 module.exports = {
     entry: {
-        main: './src/main.ts'
+        main: './src/main.ts',
+        vendor: './src/vendor.ts'
     },
     output: {
         path: helpers.root('./.build'),
@@ -31,8 +33,21 @@ module.exports = {
                 use: 'raw-loader' 
             },
             {
+                test: /\.(png|jpe?g|gif|svg|woff|woff2|ttf|eot|ico)$/,
+                loader: 'file-loader?name=assets/[name].[hash].[ext]'
+            },
+            {
                 test: /\.css$/,
-                use: ['style-loader','css-loader']
+                exclude: helpers.root('src', 'app'),
+                loader: ExtractTextPlugin.extract({
+                    fallback: 'style-loader',
+                    use: ['css-loader']
+                })
+            },
+            {
+                test: /\.css$/,
+                include: helpers.root('src', 'app'),
+                loader: 'raw-loader'
             }
         ],
        
