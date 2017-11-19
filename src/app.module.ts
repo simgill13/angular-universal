@@ -21,7 +21,8 @@ import {appRoutes}          from './app.route'
         RouterModule.forRoot(
             appRoutes,
             {enableTracing:false}
-        )
+        ),
+        BrowserModule.withServerTransition({appId:'universal-webpack'})
     ],
     providers:[],
     bootstrap:[AppComponent]

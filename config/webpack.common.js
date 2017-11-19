@@ -17,7 +17,8 @@ module.exports = {
     resolve: {
         extensions: ['.js', '.ts', '.html']
     },
-    devtool: 'inline-source-map',
+    devtool: 'source-map',
+    watch:true,
     module: {
         loaders: [
             { 

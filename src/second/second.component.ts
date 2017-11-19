@@ -1,4 +1,4 @@
-import {Component} from '@angular/core';
+import {Component,OnInit} from '@angular/core';
 
 @Component({
     selector: 'second',
@@ -7,4 +7,14 @@ import {Component} from '@angular/core';
     
 })
 
-export class SecondComponent {}
+export class SecondComponent {
+    title:'second'
+
+    constructor(){
+
+    }
+
+    ngOnInit(){
+        console.log('hello')
+    }
+}

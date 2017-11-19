@@ -4,11 +4,15 @@
   "description": "universal webpack",
   "main": "main.js",
   "scripts": {
-    "test:build": "webpack-dev-server --open --config webpack.config.js"
+    "build": "webpack --config webpack.config.js",
+    "client:serve": "webpack-dev-server --open --config webpack.config.js",
+    "test": "node server.js",
+    "server:build": "webpack --config webpack.config.js && node server.js"
   },
   "author": "simgill",
   "license": "ISC",
   "dependencies": {
+    "@angular/animations": "^5.0.2",
     "@angular/common": "^5.0.2",
     "@angular/compiler": "^5.0.2",
     "@angular/core": "^5.0.2",
@@ -16,6 +20,7 @@
     "@angular/http": "^5.0.2",
     "@angular/platform-browser": "^5.0.2",
     "@angular/platform-browser-dynamic": "^5.0.2",
+    "@angular/platform-server": "^5.0.2",
     "@angular/router": "^5.0.2",
     "core-js": "^2.5.1",
     "ngx-bootstrap": "^2.0.0-beta.8",
