@@ -17,10 +17,6 @@ module.exports = {
     resolve: {
         extensions: ['.js', '.ts', '.html']
     },
-    devServer: {
-        contentBase: path.join(__dirname, "../dist/"),
-        port: 9000
-    },
     devtool: 'inline-source-map',
     module: {
         loaders: [
@@ -38,7 +34,7 @@ module.exports = {
             },
             {
                 test: /\.css$/,
-                exclude: helpers.root('src', 'app'),
+                exclude: helpers.root('src', 'css'),
                 loader: ExtractTextPlugin.extract({
                     fallback: 'style-loader',
                     use: ['css-loader']
@@ -46,7 +42,7 @@ module.exports = {
             },
             {
                 test: /\.css$/,
-                include: helpers.root('src', 'app'),
+                include: helpers.root('src', 'css'),
                 loader: 'raw-loader'
             }
         ],
